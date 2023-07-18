@@ -45,6 +45,15 @@ public class Pyroscope {
             RefCounted.strings.gc();
             return sb.build();
         }
+
+        public static byte[] dumpToBytes() {
+            JfrLabels.Snapshot js = dump();
+            return js.toByteArray();
+        }
+
+        public static void defineClass() {
+            // do nothing but loading the class to JVM
+        }
     }
 
     private static Map<String, String> staticLabels = Collections.emptyMap();
